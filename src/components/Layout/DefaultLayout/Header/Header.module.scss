@@ -94,10 +94,19 @@
 
 .actions-place {
     button {
-        margin: 0px 14px;
         border: none;
         outline: none;
         background-color: transparent;
+        font-size: 17px;
+        font-weight: 700;
+        padding: 10px 22px;
+        cursor: pointer;
+    }
+
+    :nth-child(2) {
+        background-color: var(--primary);
+        border-radius: 5px;
+        color: white;
     }
 
 }
