@@ -57,11 +57,16 @@ function Header() {
                     </div>
                 </Tippy>
 
+
                 <div className={ cx('actions-place') }>
                     <ButtonTikTok text>
                         Upload
                     </ButtonTikTok>
-                    <ButtonTikTok primary>
+                    <ButtonTikTok
+                        primary
+                        onClick={ () => alert("hello baby") }
+
+                    >
                         Log in
                     </ButtonTikTok>
                 </div>

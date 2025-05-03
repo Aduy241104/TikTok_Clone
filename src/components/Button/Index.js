@@ -5,15 +5,27 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function ButtonTikTok({ to, href, onClick, children, primary, small = false, large = false, text = false, outLine, ...passProps }) {
+function ButtonTikTok({ to, href, onClick, children, primary, className, leftIcon, rightIcon,
+    small = false,
+    large = false,
+    text = false,
+    disabled = false,
+    rounded = false,
+    outLine,
+    ...passProps }) {
 
     let Comp = 'button';
     const classes = cx('wrapper', {
+        [className]: className,
         primary,
         outLine,
         small,
         large,
-        text
+        text,
+        disabled,
+        rounded,
+        leftIcon,
+        rightIcon
     });
 
     const props = {
@@ -21,7 +33,17 @@ function ButtonTikTok({ to, href, onClick, children, primary, small = false, lar
         ...passProps,
     };
 
+    // if prop disbled is exists, the component will delete onClick prop
+    if (disabled) {
+        Object.keys(props).forEach((key) => {
+            if (key.startsWith("on") && typeof props[key] === 'function') {
+                delete props[key];
+            }
+        })
+    }
 
+
+    // use to defind type of button is 'a' tag or Link tag
     if (to) {
         props.to = to;
         Comp = Link;
@@ -33,7 +55,9 @@ function ButtonTikTok({ to, href, onClick, children, primary, small = false, lar
 
     return (
         <Comp className={ classes } { ...props }>
-            <span>{ children }</span>
+            { leftIcon && <span className={ cx('icon') }>{ leftIcon }</span> }
+            <span className={cx('title')}>{ children }</span>
+            { rightIcon && <span className={ cx('icon') }>{ rightIcon }</span> }
         </Comp>
     )
 }

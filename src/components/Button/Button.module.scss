@@ -1,4 +1,7 @@
 .wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: 16px;
     font-weight: 600;
     min-width: 100px;
@@ -8,9 +11,32 @@
     background-color: var(--white);
     border: 1px solid transparent;
     box-sizing: border-box;
+    user-select: none;
 
-    + .wrapper {
+    +.wrapper {
         margin-left: 8px;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+.icon + .title, .title + .icon {
+    margin-left: 8px;
+}
+
+.rounded {
+    border-radius: 999px;
+    border-color: currentColor;
+    color: gray;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+    background-color: var(--white);
+
+    &:hover {
+        background-color: var(--black);
+        color: var(--white);
     }
 }
 
@@ -26,6 +52,8 @@
 .outLine {
     color: var(--primary);
     border-color: currentColor;
+    background-color: var(--white);
+
 
     &:hover {
         // border-color: currentColor;
@@ -38,6 +66,7 @@
         text-decoration: underline;
     }
 }
+
 
 //button size 
 
