@@ -1,0 +1,42 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 6px 16px;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+
+
+}
+
+.avarta {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.content {
+    margin-left: 12px;
+    flex: 1;
+
+    i {
+        font-size: 12px;
+        color: rgb(32, 213, 236);
+        margin-left: 6px;
+    }
+
+    .account-name {
+        font-weight: 600;
+
+    }
+
+    .account-id {
+        color: var(--smoke-gray);
+        font-size: 15px;
+    }
+}
