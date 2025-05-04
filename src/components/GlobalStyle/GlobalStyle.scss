@@ -2,7 +2,7 @@
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
     --white: #fff;
-    --primary: #fe2c55;
+    --primary: rgba(255, 59, 92, 1);
     --black: #000;
     --smoke-gray: rgb(175, 171, 171);
 }
@@ -18,4 +18,10 @@ p {
 button {
     outline: none;
     border: none;
+    background-color: transparent;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
 }
