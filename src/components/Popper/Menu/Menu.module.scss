@@ -1,11 +1,47 @@
 .content {
     width: 220px;
     padding: 4px 8px;
+    padding-right: 0px;
 }
 
 .menu-item {
     margin-left: 0 !important;
-    
+    width: 100%;
+    display: inline-flex;
+    justify-content: flex-start;
+    padding: 11px 16px;
+    border: none;
+    outline: none;
+    line-height: 20px;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.menu-popper {
+    padding-bottom: 8px;
+}
+
+
+.header {
+    position: relative;
+    height: 50px;
+    margin-top: -8px;
+}
+
+.back-btn {
+    width: 50px;
+    height: 100%;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.header-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 // .accounts::after {

@@ -16,6 +16,19 @@ const MENU_ITEMS = [
     {
         icon: <i class="fa-solid fa-earth-americas"></i>,
         title: "English",
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    code: 'vi',
+                    title: 'Vietnamese'
+                }
+            ]
+        }
     },
     {
         icon: <i class="fa-solid fa-circle-question"></i>,

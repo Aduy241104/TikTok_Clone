@@ -5,6 +5,14 @@
     --primary: rgba(255, 59, 92, 1);
     --black: #000;
     --smoke-gray: rgb(175, 171, 171);
+
+
+    --font: "Rubik", sans-serif;
+    --default-layout-horizontal-spacer: 24px;
+}
+
+body {
+    font-family: var(--font) !important;
 }
 
 h1,
@@ -19,6 +27,7 @@ button {
     outline: none;
     border: none;
     background-color: transparent;
+    font-family: var(--font);
 }
 
 a {
