@@ -7,8 +7,14 @@ const cx = classNames.bind(styles);
 
 function MenuItem({ data, onClick }) {
 
+  const classes = cx('menu-item', {
+    separate: data.separate
+  })
+
+
+
   return (
-    <ButtonTikTok className={ cx('menu-item') } leftIcon={ data.icon } to={ data.to } onClick={ onClick }>
+    <ButtonTikTok className={ cx(classes) } leftIcon={ data.icon } to={ data.to } onClick={ onClick }>
       { data.title }
     </ButtonTikTok>
   )

@@ -3,8 +3,8 @@ import { publicRoutes } from './routers';
 import DefaultLayout from './components/Layout/DefaultLayout';
 import { Fragment } from 'react';
 
-function App() {
 
+function App() {
  
   return (
     <div className='App'>
@@ -29,7 +29,7 @@ function App() {
           )
         }) }
 
-      </Routes>
+      </Routes> 
     </div>
   );
 }
