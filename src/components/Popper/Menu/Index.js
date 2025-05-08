@@ -37,7 +37,6 @@ function Menu({ children, items = [] }) {
         <Tippy
             interactive={ true }
             placement="top-start"
-            visible
             delay={ [0, 700] }
             onHide={ () => { setHistory(prev => [prev[0]]) } }
             render={ attrs => (

@@ -7,13 +7,12 @@
     --smoke-gray: rgb(175, 171, 171);
 
 
-    --font: "Rubik", sans-serif;
+    --font: 'ProximaNova', sans-serif;
     --default-layout-horizontal-spacer: 24px;
 }
 
 body {
     font-family: var(--font) !important;
-
 
     .tippy-box {
         border-radius: 8px;
@@ -49,4 +48,28 @@ button {
 a {
     text-decoration: none;
     color: currentColor;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/Fonts/Proxima-Nova-Regular.woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/Fonts/ProximaNova-Semibold.woff2');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/Fonts/Proxima-Nova-Bold.woff');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: SofiaPro;
+    src: url('/assets/Fonts/sofiapro-bold.woff');
+    font-weight: 700;
 }

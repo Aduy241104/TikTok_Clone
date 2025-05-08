@@ -113,7 +113,7 @@
 .action-btn {
     background-color: transparent;
     font-size: 20px;
-    padding: 4px 13px;
+    padding: 4px 8px;
     cursor: pointer;
 
 }
@@ -124,11 +124,14 @@
     cursor: pointer;
 }
 
-.user-avartar {
+.style-icon {
     width: 32px;
     height: 32px;
-    border-radius: 999%;
-    cursor: pointer;
-    object-fit: cover;
-    margin-left: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.messeage-icon {
+    width: 26px;
+    height: 26px;
 }
