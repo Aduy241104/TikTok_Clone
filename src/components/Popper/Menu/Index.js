@@ -38,6 +38,7 @@ function Menu({ children, items = [] }) {
             interactive={ true }
             placement="top-start"
             delay={ [0, 700] }
+            offset={ [9, 5] }
             onHide={ () => { setHistory(prev => [prev[0]]) } }
             render={ attrs => (
                 <div className={ cx('content') } tabIndex="-1" { ...attrs }>

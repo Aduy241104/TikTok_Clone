@@ -1,5 +1,4 @@
-import React from 'react'
-import Header from './Header/Index'
+import Header from '../Components/Header/Index'
 import SideBar from './SideBar/Index'
 import styles from './DefaultLayout.module.scss'
 import classNames from 'classnames/bind'
