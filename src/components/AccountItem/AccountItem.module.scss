@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     padding: 6px 8px;
+    margin-bottom: 5px;
     width: 100%;
     box-sizing: border-box;
     cursor: pointer;
@@ -32,11 +33,12 @@
 
     .account-name {
         font-weight: 600;
-
     }
 
     .account-id {
         color: var(--smoke-gray);
-        font-size: 15px;
+        font-size: 14px;
+        margin-top: 3px ;
+        display: block;
     }
 }

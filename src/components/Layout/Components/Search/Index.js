@@ -11,9 +11,12 @@ function Search() {
     const [searchValue, setSearchValue] = useState("");
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
+    const [loading, SetLoading] = useState(false);
+
     const inputRef = useRef(null);
 
     const changeSearchValue = (text) => {
+        SetLoading(true);
         setSearchValue(text)
     }
 
@@ -27,11 +30,21 @@ function Search() {
         setShowResult(false);
     }
 
+
     useEffect(() => {
-        setTimeout(() => {
-            setSearchResult([1, 2, 3]);
-        }, 0)
-    }, [])
+        if (searchValue.trim() !== "") {
+            fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+                .then(res => res.json())
+                .then(res => {
+                    SetLoading(false);
+                    setSearchResult(res.data)
+                })
+        } else {
+            setSearchResult([]);
+        }
+
+    }, [searchValue])
+
 
     return (
         <Tippy
@@ -43,10 +56,18 @@ function Search() {
                 <div className={ cx('search-result') } tabIndex="-1" { ...attrs }>
                     <PopperWrapper>
                         <h4 className={ cx('accounts') }>Accounts</h4>
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
+                        { searchResult.map((item) => {
+                            return (
+                                <AccountItem
+                                    nickName={ item.nickname }
+                                    fullName={ item.full_name }
+                                    avatar={ item.avatar }
+                                    id={ item.id }
+                                    tick={ item.tick }
+                                    key={ item.id }
+                                />
+                            )
+                        }) }
                     </PopperWrapper>
                 </div>
             ) }
@@ -63,9 +84,14 @@ function Search() {
                     onFocus={ () => setShowResult(true) }
                 />
                 { !!searchValue && (
-                    <button className={ cx('clear-btn') } onClick={ () => clearSearchValue() }>
-                        <i className="fa-solid fa-circle-xmark"></i>
-                    </button>
+                    (loading) ? (
+                        <button className={ cx('clear-btn') } onClick={ () => clearSearchValue() }>
+                            <i class="fa-solid fa-spinner fa-spin-pulse"></i>
+                        </button>
+                    ) : (
+                        <button className={ cx('clear-btn') } onClick={ () => clearSearchValue() }>
+                            <i className="fa-solid fa-circle-xmark"></i>
+                        </button>)
                 ) }
                 <button className={ cx('search-btn') }>
                     <i className="fa-solid fa-magnifying-glass"></i>

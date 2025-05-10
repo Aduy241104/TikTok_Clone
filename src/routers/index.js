@@ -11,7 +11,9 @@ const publicRoutes = [
     { path: "/", component: Home },
     { path: "/Following", component: Following },
     { path: "/Profile", component: Profile, layout: HeaderOnly },
-    { path: '/play', component: Play }
+    { path: '/play', component: Play },
+    { path: '/@:nickname', component: Play }
+
 
 ];
 
