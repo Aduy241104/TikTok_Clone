@@ -4,6 +4,7 @@ import { Wrapper as PopperWrapper } from '../../../Popper/Index'
 import AccountItem from '../../../AccountItem/AccountItem';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss'
+import { useDebounce } from '../../../../hooks';
 
 const cx = classNames.bind(styles);
 
@@ -14,6 +15,7 @@ function Search() {
     const [loading, SetLoading] = useState(false);
 
     const inputRef = useRef(null);
+    const debounceValue = useDebounce(searchValue, 1000)
 
     const changeSearchValue = (text) => {
         SetLoading(true);
@@ -32,18 +34,18 @@ function Search() {
 
 
     useEffect(() => {
-        if (searchValue.trim() !== "") {
-            fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+        if (!!debounceValue.trim()) {
+            fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounceValue)}&type=less`)
                 .then(res => res.json())
                 .then(res => {
                     SetLoading(false);
-                    setSearchResult(res.data)
+                    setSearchResult(res.data)   
                 })
         } else {
             setSearchResult([]);
         }
 
-    }, [searchValue])
+    }, [debounceValue])
 
 
     return (
@@ -83,7 +85,7 @@ function Search() {
                     value={ searchValue }
                     onFocus={ () => setShowResult(true) }
                 />
-                { !!searchValue && (
+                { !!searchValue.trim() && (
                     (loading) ? (
                         <button className={ cx('clear-btn') } onClick={ () => clearSearchValue() }>
                             <i class="fa-solid fa-spinner fa-spin-pulse"></i>

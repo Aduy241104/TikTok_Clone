@@ -12,7 +12,7 @@ const publicRoutes = [
     { path: "/Following", component: Following },
     { path: "/Profile", component: Profile, layout: HeaderOnly },
     { path: '/play', component: Play },
-    { path: '/@:nickname', component: Play }
+    { path: '/@:nickname', component: Profile }
 
 
 ];
