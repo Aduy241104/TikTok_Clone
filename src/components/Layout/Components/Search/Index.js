@@ -1,10 +1,14 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react';
+import request from '../../../../utils/request'
 import Tippy from '@tippyjs/react/headless';
-import { Wrapper as PopperWrapper } from '../../../Popper/Index'
+import { Wrapper as PopperWrapper } from '../../../Popper/Index';
 import AccountItem from '../../../AccountItem/AccountItem';
 import classNames from 'classnames/bind';
-import styles from './Search.module.scss'
+import styles from './Search.module.scss';
 import { useDebounce } from '../../../../hooks';
+
+
+
 
 const cx = classNames.bind(styles);
 
@@ -15,7 +19,7 @@ function Search() {
     const [loading, SetLoading] = useState(false);
 
     const inputRef = useRef(null);
-    const debounceValue = useDebounce(searchValue, 1000)
+    const debounceValue = useDebounce(searchValue, 500)
 
     const changeSearchValue = (text) => {
         SetLoading(true);
@@ -35,12 +39,21 @@ function Search() {
 
     useEffect(() => {
         if (!!debounceValue.trim()) {
-            fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounceValue)}&type=less`)
-                .then(res => res.json())
+
+            request.get('users/search', {
+                params: {
+                    q: debounceValue,
+                    type: "less"
+                }
+            })
                 .then(res => {
                     SetLoading(false);
-                    setSearchResult(res.data)   
+                    setSearchResult(res.data.data)
                 })
+                .catch(() => {
+                    SetLoading(false);
+                })
+
         } else {
             setSearchResult([]);
         }
