@@ -1,14 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import request from '../../../../utils/request'
 import Tippy from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '../../../Popper/Index';
 import AccountItem from '../../../AccountItem/AccountItem';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { useDebounce } from '../../../../hooks';
-
-
-
+import { search } from '../../../../apiServices/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -36,30 +33,19 @@ function Search() {
         setShowResult(false);
     }
 
-
     useEffect(() => {
         if (!!debounceValue.trim()) {
-
-            request.get('users/search', {
-                params: {
-                    q: debounceValue,
-                    type: "less"
-                }
-            })
-                .then(res => {
-                    SetLoading(false);
-                    setSearchResult(res.data.data)
-                })
-                .catch(() => {
-                    SetLoading(false);
-                })
-
+            
+            const fetchAPI = async () => {
+                const searchResult = await search(debounceValue);
+                SetLoading(false);
+                setSearchResult(searchResult.data)
+            }
+            fetchAPI();
         } else {
             setSearchResult([]);
         }
-
     }, [debounceValue])
-
 
     return (
         <Tippy

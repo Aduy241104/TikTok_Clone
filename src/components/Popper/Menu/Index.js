@@ -30,7 +30,6 @@ function Menu({ children, items = [] }) {
                 <MenuItem data={ item } onClick={ () => handleChangeSubMenu(item) } key={ index } />
             )
         })
-
     }
 
     return (
