@@ -1,16 +1,27 @@
-import classNames from 'classnames/bind'
-import styles from './Header.module.scss'
-import images from '../../../../assets/images/Index';
-import TippyHeadless from '@tippyjs/react/';
-import ButtonTikTok from '../../../Button/Index';
-import Menu from '../../../Popper/Menu/Index';
-import 'tippy.js/dist/tippy.css';
-import { UploadIcon, InboxIcon, MessageIcon } from '../../../Icons/Icon'
-import Image from '../../../Image/Index';
-import Search from '../Search/Index';
+// Thư viện bên ngoài
 import { Link } from 'react-router-dom';
-import routesConfig from '../../../../config/routes';
-import MENU_ITEMS, { userMenu } from './dataMenu'
+import TippyHeadless from '@tippyjs/react/';
+import 'tippy.js/dist/tippy.css';
+import classNames from 'classnames/bind';
+
+// Cấu hình và constants
+import config from '../../../config';
+import MENU_ITEMS, { userMenu } from './dataMenu';
+
+// Assets
+import images from '../../../assets/images/Index';
+
+// Styles
+import styles from './Header.module.scss';
+
+// Component nội bộ
+import ButtonTikTok from '../../../components/Button/Index';
+import Menu from '../../../components/Popper/Menu/Index';
+import Image from '../../../components/Image/Index';
+import Search from '../Search/Index';
+
+// Icons
+import { UploadIcon, InboxIcon, MessageIcon } from '../../../components/Icons/Icon';
 
 const cx = classNames.bind(styles);
 const currentUser = true;
@@ -20,8 +31,8 @@ function Header() {
     return (
         <header className={ cx('wrapper') }>
             <div className={ cx('inner-content') }>
-                
-                <Link className={ cx('logo') } to={ routesConfig.home }>
+
+                <Link className={ cx('logo') } to={ config.routes.home }>
                     <img src={ images.logo } alt="tiktok logo" />
                 </Link>
 
@@ -73,7 +84,7 @@ function Header() {
                             </>
                         ) }
 
-                    <Menu items={ (currentUser) ? userMenu : MENU_ITEMS } hideOnClick={false}>
+                    <Menu items={ (currentUser) ? userMenu : MENU_ITEMS } hideOnClick={ false }>
                         { (currentUser) ? (
                             <Image
                                 src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/a0e63af2063dccd1389e1bc27ee465ba~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=888d861f&x-expires=1746669600&x-signature=4O30%2F%2FU5oWU7aogL5U%2BvuQ8qfy0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my"

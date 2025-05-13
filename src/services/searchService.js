@@ -1,4 +1,4 @@
-import { getAccountAPI } from "../utils/request";
+import { getAccountAPI } from "../utils/httpRequest";
 
 export const search = async (q, type = "less") => {
     try {
