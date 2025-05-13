@@ -5,7 +5,7 @@ import { Fragment } from 'react';
 
 
 function App() {
- 
+
   return (
     <div className='App'>
       <Routes>
@@ -19,7 +19,6 @@ function App() {
           } else if (route.layout === null) {
             Layout = Fragment;
           }
-
           return (
             <Route
               key={ index }
@@ -29,7 +28,7 @@ function App() {
           )
         }) }
 
-      </Routes> 
+      </Routes>
     </div>
   );
 }

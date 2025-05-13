@@ -8,7 +8,7 @@ import Header from './Header'
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [] }) {
+function Menu({ children, items = [], hideOnClick = false }) {
 
     const [history, setHistory] = useState([{ data: items }]);
     const currentMenu = history[history.length - 1];
@@ -37,6 +37,7 @@ function Menu({ children, items = [] }) {
             interactive={ true }
             placement="top-start"
             delay={ [0, 700] }
+            hideOnClick={ hideOnClick }
             offset={ [9, 5] }
             onHide={ () => { setHistory(prev => [prev[0]]) } }
             render={ attrs => (

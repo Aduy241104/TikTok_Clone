@@ -1,9 +1,13 @@
-import React from 'react'
+
+import { useParams } from 'react-router-dom'
 
 function Profile() {
+  const { nickname } = useParams();
+
+
   return (
     <div>
-      <h1>Profile</h1>
+      <h1>Profile { nickname } </h1>
     </div>
   )
 }

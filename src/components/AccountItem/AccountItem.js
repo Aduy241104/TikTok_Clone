@@ -2,12 +2,16 @@ import React from 'react'
 import styles from './AccountItem.module.scss'
 import classNames from 'classnames/bind'
 import Image from '../Image/Index';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function AccountItem({ nickName, fullName, avatar, id, tick }) {
+    const navigate = useNavigate();
+
+
     return (
-        <div className={ cx('wrapper') }>
+        <div className={ cx('wrapper') } onClick={ () => navigate(`/@${nickName}`) }>
             <Image
                 src={ avatar }
                 alt=""

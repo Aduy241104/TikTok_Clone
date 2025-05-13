@@ -8,78 +8,25 @@ import 'tippy.js/dist/tippy.css';
 import { UploadIcon, InboxIcon, MessageIcon } from '../../../Icons/Icon'
 import Image from '../../../Image/Index';
 import Search from '../Search/Index';
+import { Link } from 'react-router-dom';
+import routesConfig from '../../../../config/routes';
+import MENU_ITEMS, { userMenu } from './dataMenu'
 
 const cx = classNames.bind(styles);
 const currentUser = true;
 
-const MENU_ITEMS = [
-    {
-        icon: <i className="fa-solid fa-earth-americas"></i>,
-        title: "English",
-        children: {
-            title: 'Language',
-            data: [
-                {
-                    code: 'en',
-                    title: 'English',
-                },
-                {
-                    code: 'vi',
-                    title: 'Vietnamese'
-                }
-            ]
-        }
-    },
-    {
-        icon: <i className="fa-solid fa-circle-question"></i>,
-        title: "Feedback and help",
-        to: "/feeback"
-    },
-    {
-        icon: <i className="fa-solid fa-keyboard"></i>,
-        title: "Keyboard shortcuts",
-        to: ""
-    }
-]
-
-
-const userMenu = [
-    {
-        icon: <i className="fa-regular fa-user"></i>,
-        title: "View profile",
-        to: "/feeback"
-    },
-    {
-        icon: <i className="fa-brands fa-bitcoin"></i>,
-        title: "Get coins",
-        to: "/feeback"
-    },
-    {
-        icon: <i className="fa-solid fa-gear"></i>,
-        title: "Settings",
-        to: "/feeback"
-    },
-    ...MENU_ITEMS,
-    {
-        icon: <i className="fa-solid fa-arrow-right-from-bracket"></i>,
-        title: "Sign out",
-        to: "/feeback",
-        separate: true
-    },
-]
-
 function Header() {
-   
+
     return (
         <header className={ cx('wrapper') }>
             <div className={ cx('inner-content') }>
-
-                <div className={ cx('logo') }>
+                
+                <Link className={ cx('logo') } to={ routesConfig.home }>
                     <img src={ images.logo } alt="tiktok logo" />
-                </div>
+                </Link>
 
-               {/* {search} */}
-               <Search/>
+                {/* {search} */ }
+                <Search />
 
                 <div className={ cx('actions-place') }>
                     { (currentUser) ? (
@@ -126,7 +73,7 @@ function Header() {
                             </>
                         ) }
 
-                    <Menu items={ (currentUser) ? userMenu : MENU_ITEMS }>
+                    <Menu items={ (currentUser) ? userMenu : MENU_ITEMS } hideOnClick={false}>
                         { (currentUser) ? (
                             <Image
                                 src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/a0e63af2063dccd1389e1bc27ee465ba~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=888d861f&x-expires=1746669600&x-signature=4O30%2F%2FU5oWU7aogL5U%2BvuQ8qfy0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my"

@@ -19,8 +19,12 @@ function Search() {
     const debounceValue = useDebounce(searchValue, 500)
 
     const changeSearchValue = (text) => {
-        SetLoading(true);
-        setSearchValue(text)
+        if (text.length > 0 && text.trim() !== "") {
+            SetLoading(true);
+            setSearchValue(text)
+        } else if (text === "") {
+            setSearchValue(text)
+        }
     }
 
     const clearSearchValue = () => {
@@ -34,8 +38,10 @@ function Search() {
     }
 
     useEffect(() => {
+        console.log("re-render");
+
         if (!!debounceValue.trim()) {
-            
+
             const fetchAPI = async () => {
                 const searchResult = await search(debounceValue);
                 SetLoading(false);
@@ -94,7 +100,7 @@ function Search() {
                             <i className="fa-solid fa-circle-xmark"></i>
                         </button>)
                 ) }
-                <button className={ cx('search-btn') }>
+                <button className={ cx('search-btn') } onMouseDown={(e) => e.preventDefault()}>
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
             </div>
