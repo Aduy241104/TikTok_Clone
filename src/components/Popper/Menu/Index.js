@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Tippy from '@tippyjs/react/headless'
 import classNames from 'classnames/bind'
 import styles from './Menu.module.scss'
@@ -44,10 +44,13 @@ function Menu({ children, items = [], hideOnClick = false }) {
                 <div className={ cx('content') } tabIndex="-1" { ...attrs }>
                     <PopperWrapper className={ cx("menu-popper") }>
                         { (history.length > 1) ? (<Header title={ currentMenu.title } onBack={ handleBack } />) : "" }
-                        { renderItems() }
+                        <div className={cx('menu-scroll')}>
+                            { renderItems() }
+                        </div>
                     </PopperWrapper>
                 </div>
             ) }
+         
         >
             { children }
         </Tippy>

@@ -4,6 +4,11 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: var(--white);
+    z-index: 10;
 }
 
 .inner-content {

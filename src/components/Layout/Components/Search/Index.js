@@ -54,57 +54,59 @@ function Search() {
     }, [debounceValue])
 
     return (
-        <Tippy
-            interactive
-            visible={ searchResult.length > 0 && showResult }
-            offset={ [1, 8] }
-            onClickOutside={ () => handleHideResult() }
-            render={ attrs => (
-                <div className={ cx('search-result') } tabIndex="-1" { ...attrs }>
-                    <PopperWrapper>
-                        <h4 className={ cx('accounts') }>Accounts</h4>
-                        { searchResult.map((item) => {
-                            return (
-                                <AccountItem
-                                    nickName={ item.nickname }
-                                    fullName={ item.full_name }
-                                    avatar={ item.avatar }
-                                    id={ item.id }
-                                    tick={ item.tick }
-                                    key={ item.id }
-                                />
-                            )
-                        }) }
-                    </PopperWrapper>
-                </div>
-            ) }
-        >
-            <div className={ cx('search-place') }>
-                <input
-                    type="text"
-                    placeholder='Search accounts and videos'
-                    className=''
-                    spellCheck={ false }
-                    ref={ inputRef }
-                    onChange={ (e) => changeSearchValue(e.target.value) }
-                    value={ searchValue }
-                    onFocus={ () => setShowResult(true) }
-                />
-                { !!searchValue.trim() && (
-                    (loading) ? (
-                        <button className={ cx('clear-btn') } onClick={ () => clearSearchValue() }>
-                            <i class="fa-solid fa-spinner fa-spin-pulse"></i>
-                        </button>
-                    ) : (
-                        <button className={ cx('clear-btn') } onClick={ () => clearSearchValue() }>
-                            <i className="fa-solid fa-circle-xmark"></i>
-                        </button>)
+        <div>
+            <Tippy
+                interactive
+                // appendTo={ () => document.body }
+                visible={ searchResult.length > 0 && showResult }
+                offset={ [1, 8] }
+                onClickOutside={ () => handleHideResult() }
+                render={ attrs => (
+                    <div className={ cx('search-result') } tabIndex="-1" { ...attrs }>
+                        <PopperWrapper>
+                            <h4 className={ cx('accounts') }>Accounts</h4>
+                            { searchResult.map((item) => {
+                                return (
+                                    <AccountItem
+                                        nickName={ item.nickname }
+                                        fullName={ item.full_name }
+                                        avatar={ item.avatar }
+                                        id={ item.id }
+                                        tick={ item.tick }
+                                        key={ item.id }
+                                    />
+                                )
+                            }) }
+                        </PopperWrapper>
+                    </div>
                 ) }
-                <button className={ cx('search-btn') } onMouseDown={(e) => e.preventDefault()}>
-                    <i className="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
-        </Tippy>
+            >
+                <div className={ cx('search-place') }>
+                    <input
+                        type="text"
+                        placeholder='Search accounts and videos'
+                        spellCheck={ false }
+                        ref={ inputRef }
+                        onChange={ (e) => changeSearchValue(e.target.value) }
+                        value={ searchValue }
+                        onFocus={ () => setShowResult(true) }
+                    />
+                    { !!searchValue.trim() && (
+                        (loading) ? (
+                            <button className={ cx('clear-btn') } onClick={ () => clearSearchValue() }>
+                                <i className="fa-solid fa-spinner fa-spin-pulse"></i>
+                            </button>
+                        ) : (
+                            <button className={ cx('clear-btn') } onClick={ () => clearSearchValue() }>
+                                <i className="fa-solid fa-circle-xmark"></i>
+                            </button>)
+                    ) }
+                    <button className={ cx('search-btn') } onMouseDown={ (e) => e.preventDefault() }>
+                        <i className="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </Tippy>
+        </div>
     )
 }
 

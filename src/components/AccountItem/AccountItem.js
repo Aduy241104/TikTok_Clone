@@ -23,7 +23,7 @@ function AccountItem({ nickName, fullName, avatar, id, tick }) {
                     <span className={ cx('account-name') }>
                         { nickName }
                     </span>
-                    { tick && <i class="fa-solid fa-circle-check"></i> }
+                    { tick && <i className="fa-solid fa-circle-check"></i> }
                 </p>
                 <span className={ cx('account-id') }>
                     { fullName }

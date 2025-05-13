@@ -10,8 +10,6 @@ function MenuItem({ data, onClick }) {
     separate: data.separate
   })
 
-
-
   return (
     <ButtonTikTok className={ cx(classes) } leftIcon={ data.icon } to={ data.to } onClick={ onClick }>
       { data.title }

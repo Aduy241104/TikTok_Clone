@@ -4,6 +4,10 @@
     padding-right: 0px;
 }
 
+.menu-scroll {
+    overflow-y: auto;
+}
+
 .menu-item {
     margin-left: 0 !important;
     width: 100%;
@@ -13,9 +17,10 @@
     border: none;
     outline: none;
     line-height: 20px;
+    border-radius: 0px;
 
     &:hover {
-        background-color: rgba(22, 24, 35, 0.03);
+        background-color: rgba(109, 109, 112, 0.1);
     }
 
     &.separate {
@@ -28,11 +33,11 @@
     padding-bottom: 8px;
 }
 
-
 .header {
     position: relative;
     height: 50px;
     margin-top: -8px;
+    flex-shrink: 0;
 }
 
 .back-btn {
@@ -48,13 +53,3 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-
-// .accounts::after {
-//     content: "";
-//     position: absolute;
-//     width: 100px;
-//     height: 30px;
-//     top: -30px;
-//     right: -20%;
-// }

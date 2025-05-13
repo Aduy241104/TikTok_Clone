@@ -7,10 +7,12 @@
 
 .container {
     width: var(--default-layout-width);
+    margin-top: 160px;
     min-height: 1000px;
+    flex: 1;
     display: flex; 
     background-color: rgb(255, 255, 255);
-    margin-top: 2px;
+    margin-top: 60px;
     padding: 0px var(--default-layout-horizontal-spacer);
 }
 
