@@ -1,6 +1,6 @@
 import styles from './Menu.module.scss'
 import classNames from 'classnames/bind'
-import ButtonTikTok from '../../Button/Index';
+import ButtonTikTok from '../../Button/ButtonTikTok';
 
 const cx = classNames.bind(styles);
 

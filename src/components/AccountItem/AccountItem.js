@@ -1,19 +1,19 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 import styles from './AccountItem.module.scss'
 import classNames from 'classnames/bind'
-import Image from '../Image/Index';
+import Image from '../Image';
 import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function AccountItem({ nickName, fullName, avatar, id, tick }) {
+function AccountItem({ data }) {
+    console.log(typeof data)
     const navigate = useNavigate();
 
-
     return (
-        <div className={ cx('wrapper') } onClick={ () => navigate(`/@${nickName}`) }>
+        <div className={ cx('wrapper') } onClick={ () => navigate(`/@${data.id}`) }>
             <Image
-                src={ avatar }
+                src={ data.avatar }
                 alt=""
                 className={ cx('avarta') }
 
@@ -21,16 +21,21 @@ function AccountItem({ nickName, fullName, avatar, id, tick }) {
             <div className={ cx('content') }>
                 <p className={ cx('account') }>
                     <span className={ cx('account-name') }>
-                        { nickName }
+                        { data.nickname }
                     </span>
-                    { tick && <i className="fa-solid fa-circle-check"></i> }
+                    { data.tick && <i className="fa-solid fa-circle-check"></i> }
                 </p>
                 <span className={ cx('account-id') }>
-                    { fullName }
+                    { data.full_name }
                 </span>
             </div>
         </div>
     )
 }
+
+AccountItem.propTypes = {
+    data: PropTypes.object,
+};
+
 
 export default AccountItem

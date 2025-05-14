@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
-import { Wrapper as PopperWrapper } from '../../../components/Popper/Index';
-import AccountItem from '../../../components/AccountItem/AccountItem';
+import { Wrapper as PopperWrapper } from '../../../components/Popper';
+import AccountItem from '../../../components/AccountItem';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { useDebounce } from '../../../hooks';
@@ -38,7 +38,6 @@ function Search() {
     }
 
     useEffect(() => {
-        console.log("re-render");
 
         if (!!debounceValue.trim()) {
 
@@ -57,7 +56,6 @@ function Search() {
         <div>
             <Tippy
                 interactive
-                // appendTo={ () => document.body }
                 visible={ searchResult.length > 0 && showResult }
                 offset={ [1, 8] }
                 onClickOutside={ () => handleHideResult() }
@@ -68,11 +66,7 @@ function Search() {
                             { searchResult.map((item) => {
                                 return (
                                     <AccountItem
-                                        nickName={ item.nickname }
-                                        fullName={ item.full_name }
-                                        avatar={ item.avatar }
-                                        id={ item.id }
-                                        tick={ item.tick }
+                                        data={ item }
                                         key={ item.id }
                                     />
                                 )

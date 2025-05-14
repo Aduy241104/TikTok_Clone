@@ -1,6 +1,6 @@
-import Home from "../pages/Home/Index";
-import Following from "../pages/Following/Index";
-import Profile from "../pages/Profile/Index";
+import Home from "../pages/Home";
+import Following from "../pages/Following";
+import Profile from "../pages/Profile";
 import HeaderOnly from "../layout/HeaderOnly";
 import Play from "../pages/PlayMusic/Play";
 import config from "../config";
@@ -17,7 +17,6 @@ const publicRoutes = [
 const privateRoutes = [
 
 ];
-
 
 export { publicRoutes, privateRoutes }
 

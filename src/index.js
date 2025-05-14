@@ -9,11 +9,11 @@ import GlobalStyle from './components/GlobalStyle';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    {/* <React.StrictMode> */}
+    <React.StrictMode>
       <GlobalStyle>
         <App />
       </GlobalStyle>
-    {/* </React.StrictMode> */}
+    </React.StrictMode>
   </BrowserRouter>
 );
 

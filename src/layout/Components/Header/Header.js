@@ -15,10 +15,10 @@ import images from '../../../assets/images/Index';
 import styles from './Header.module.scss';
 
 // Component nội bộ
-import ButtonTikTok from '../../../components/Button/Index';
-import Menu from '../../../components/Popper/Menu/Index';
-import Image from '../../../components/Image/Index';
-import Search from '../Search/Index';
+import ButtonTikTok from '../../../components/Button';
+import Menu from '../../../components/Popper/Menu';
+import Image from '../../../components/Image';
+import Search from '../Search/Search';
 
 // Icons
 import { UploadIcon, InboxIcon, MessageIcon } from '../../../components/Icons/Icon';
