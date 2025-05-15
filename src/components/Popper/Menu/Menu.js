@@ -32,6 +32,10 @@ function Menu({ children, items = [], hideOnClick = false }) {
         })
     }
 
+    const resetToFirstMenu = () => {
+        setHistory(prev => prev.slice(0, 1));
+    }
+
     return (
         <Tippy
             interactive={ true }
@@ -39,7 +43,7 @@ function Menu({ children, items = [], hideOnClick = false }) {
             delay={ [0, 700] }
             hideOnClick={ hideOnClick }
             offset={ [9, 5] }
-            onHide={ () => { setHistory(prev => [prev[0]]) } }
+            onHide={ resetToFirstMenu }
             render={ attrs => (
                 <div className={ cx('content') } tabIndex="-1" { ...attrs }>
                     <PopperWrapper className={ cx("menu-popper") }>
