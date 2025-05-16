@@ -66,7 +66,7 @@ export const SearchIcon = ({ width = '2.4rem', height = '2.4rem', className }) =
     </svg>
 );
 
-export const HomeIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
+export const HomeIcon = ({ width = '2.1rem', height = '2.5rem', className }) => (
     <svg
         className={ className }
         width={ width }
@@ -83,7 +83,7 @@ export const HomeIcon = ({ width = '3.2rem', height = '3.2rem', className }) => 
     </svg>
 );
 
-export const HomeActiveIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
+export const HomeActiveIcon = ({ width = '2.1rem', height = '2.5rem', className }) => (
     <svg
         className={ className }
         width={ width }
@@ -100,7 +100,7 @@ export const HomeActiveIcon = ({ width = '3.2rem', height = '3.2rem', className 
     </svg>
 );
 
-export const UserGroupIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
+export const UserGroupIcon = ({ width = '2.1rem', height = '2.5rem', className }) => (
     <svg
         className={ className }
         width={ width }
@@ -127,7 +127,7 @@ export const UserGroupIcon = ({ width = '3.2rem', height = '3.2rem', className }
     </svg>
 );
 
-export const UserGroupActiveIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
+export const UserGroupActiveIcon = ({ width = '2.1rem', height = '2.5rem', className }) => (
     <svg
         className={ className }
         width={ width }
@@ -143,7 +143,7 @@ export const UserGroupActiveIcon = ({ width = '3.2rem', height = '3.2rem', class
     </svg>
 );
 
-export const LiveIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
+export const LiveIcon = ({ width = '2.1rem', height = '2.5rem', className }) => (
     <svg
         className={ className }
         width={ width }
@@ -161,7 +161,7 @@ export const LiveIcon = ({ width = '3.2rem', height = '3.2rem', className }) => 
     </svg>
 );
 
-export const LiveActiveIcon = ({ width = '3.2rem', height = '3.2rem', className }) => (
+export const LiveActiveIcon = ({ width = '2.1rem', height = '2.5rem', className }) => (
     <svg
         className={ className }
         width={ width }

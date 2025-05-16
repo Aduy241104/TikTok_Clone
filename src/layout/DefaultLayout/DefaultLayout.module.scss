@@ -2,12 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // padding: 0px 20px;
 }
 
 .container {
     width: var(--default-layout-width);
-    margin-top: 160px;
+    max-width: 100%;
     min-height: 1000px;
     flex: 1;
     display: flex; 
