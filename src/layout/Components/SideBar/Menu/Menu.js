@@ -5,7 +5,7 @@ const cx = classNames.bind(styles)
 
 function Menu({ children }) {
     return (
-        <nav>
+        <nav className={cx('navbar')}>
             { children }
         </nav>
     )

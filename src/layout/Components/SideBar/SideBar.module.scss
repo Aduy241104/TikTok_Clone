@@ -2,6 +2,8 @@
     width: 356px;
     min-height: 100px;
     background-color: rgb(255, 255, 255);
-    padding: 20px 0px 26px 0px
-    
+    padding: 20px 0px 26px 0px;
+    box-sizing: border-box;
+    height: 100%;
+    overflow-y: auto;
 }

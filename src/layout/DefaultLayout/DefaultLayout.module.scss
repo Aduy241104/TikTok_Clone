@@ -7,12 +7,12 @@
 .container {
     width: var(--default-layout-width);
     max-width: 100%;
-    min-height: 1000px;
-    flex: 1;
+    height: calc(100vh - 60px) ;
     display: flex; 
     background-color: rgb(255, 255, 255);
-    margin-top: 60px;
+    margin-top: 1px;
     padding: 0px var(--default-layout-horizontal-spacer);
+    overflow-y: hidden;
 }
 
 .content {
