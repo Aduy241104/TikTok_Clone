@@ -5,12 +5,28 @@ import ButtonTikTok from "../../Button/ButtonTikTok"
 
 const cx = classNames.bind(styles)
 
-function AccountPreview() {
+function AccountPreview({ avatar, nickname, fullName, likeCount, followerCount, tick }) {
+
+  function formatNumberShort(num) {
+    if (num == null || isNaN(num)) {
+      return '0'; // hoặc trả về 'N/A' nếu muốn
+    }
+
+    if (num >= 1_000_000) {
+      return (num / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
+    } else if (num >= 1_000) {
+      return (num / 1_000).toFixed(1).replace(/\.0$/, '') + 'k';
+    } else {
+      return num.toString();
+    }
+  }
+
+
   return (
     <div className={ cx('wrapper') }>
       <header className={ cx('header') }>
         <Image
-          src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/a0e63af2063dccd1389e1bc27ee465ba~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=888d861f&x-expires=1746669600&x-signature=4O30%2F%2FU5oWU7aogL5U%2BvuQ8qfy0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my"
+          src={ avatar }
           alt="avartar"
           className={ cx('user-avatar') }
           fallBack={ 'https://pbs.twimg.com/media/FIw0iNhXwAQkxKh?format=jpg&name=small' }
@@ -21,15 +37,15 @@ function AccountPreview() {
 
       <div className={ cx('preview-content') }>
         <p className={ cx('user-name') }>
-          <strong>theanh28entertainment</strong>
-          <i className="fa-solid fa-circle-check"></i>
+          <strong>{ nickname }</strong>
+          { tick && <i className="fa-solid fa-circle-check"></i> }
         </p>
-        <p className={ cx('full-name') }>Theanh28Entertainment</p>
+        <p className={ cx('full-name') }>{ fullName }</p>
 
         <p className={ cx('analytics') }>
-          <strong className={ cx('value') }>8.2M</strong>
+          <strong className={ cx('value') }>{ formatNumberShort(followerCount) }</strong>
           <span className={ cx('label') }> Followers</span>
-          <strong className={ cx('value') }>100.1M</strong>
+          <strong className={ cx('value') }>{ formatNumberShort(likeCount) }</strong>
           <span className={ cx('label') }> Likes</span>
         </p>
       </div>

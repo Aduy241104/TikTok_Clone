@@ -7,13 +7,20 @@ import AccountPreview from "./AccountPreview/AccountPreview"
 
 const cx = classNames.bind(styles);
 
-function AccountItem() {
+function AccountItem({ data }) {
 
     const renderPreview = (attrs) => {
         return (
             <div className={ cx('preview') } tabIndex='-1' { ...attrs }>
                 <Wrapper className={ cx('preview-content') }>
-                    <AccountPreview />
+                    <AccountPreview
+                        avatar={ data.avatar }
+                        nickname={ data.nickname }
+                        fullName={ data.first_name + ' ' + data.last_name }
+                        likeCount={ data.likes_count }
+                        followerCount={ data.followers_count }
+                        tick={ data.tick }
+                    />
                 </Wrapper>
             </div>
         )
@@ -30,7 +37,7 @@ function AccountItem() {
             >
                 <div className={ cx('account') }>
                     <Image
-                        src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/a0e63af2063dccd1389e1bc27ee465ba~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=888d861f&x-expires=1746669600&x-signature=4O30%2F%2FU5oWU7aogL5U%2BvuQ8qfy0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my"
+                        src={ data.avatar }
                         alt="avartar"
                         className={ cx('user-avartar') }
                         fallBack={ 'https://pbs.twimg.com/media/FIw0iNhXwAQkxKh?format=jpg&name=small' }
@@ -38,10 +45,10 @@ function AccountItem() {
 
                     <div className={ cx('user-info') }>
                         <p className={ cx('user-name') }>
-                            <strong>Sooyaa</strong>
-                            <i className="fa-solid fa-circle-check"></i>
+                            <strong>{ data.nickname }</strong>
+                            { data.tick && <i className="fa-solid fa-circle-check"></i> }
                         </p>
-                        <p className={ cx('full-name') }>Kim Jisoo</p>
+                        <p className={ cx('full-name') }>{ data.first_name + ' ' + data.last_name }</p>
                     </div>
                 </div>
 

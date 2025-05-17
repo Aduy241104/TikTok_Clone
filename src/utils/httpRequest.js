@@ -9,4 +9,9 @@ export const getAccountAPI = async (path, options = {}) => {
     return response.data;
 }
 
+export const getSuggestedAccountAPI = async (path, option = {}) => {
+    const respond = await httpRequest.get(path, option);
+    return respond.data;
+}
+
 export default httpRequest;

@@ -8,7 +8,7 @@ export const search = async (q, type = "less") => {
                 type
             }
         });
-        return respond
+        return respond;
     } catch (error) {
         console.log("loi roi baby");
     }

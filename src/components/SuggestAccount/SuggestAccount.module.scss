@@ -1,3 +1,7 @@
+.wrapper {
+    transition: height 0.6s ease-in-out;
+}
+
 .separate-line {
     width: 100%;
     margin-top: 13px;
@@ -13,6 +17,9 @@
         background-color: rgb(211, 210, 210);
     }
 }
+ .preview-content {
+    box-shadow: rgb(0 0 0 / 22%) 0px 2px 14px;
+ }
 
 .label {
     height: 37px;
