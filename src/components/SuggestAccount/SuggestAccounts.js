@@ -23,6 +23,4 @@ function SuggestAccounts({ label }) {
     )
 }
 
-
-
 export default SuggestAccounts

@@ -8,6 +8,7 @@
 
 
     --font: 'ProximaNova', sans-serif;
+    --fontSecond :'SofiaPro', sans-serif;
     --default-layout-horizontal-spacer: 24px;
 }
 
@@ -71,7 +72,7 @@ a {
 @font-face {
     font-family: SofiaPro;
     src: url('/assets/Fonts/sofiapro-bold.woff');
-    font-weight: 700;
+    font-weight: 400;
 }
 
 // Scrollbar CSS

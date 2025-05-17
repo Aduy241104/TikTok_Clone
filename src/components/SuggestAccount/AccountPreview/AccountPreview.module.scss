@@ -1,0 +1,55 @@
+.wrapper {
+    width: 284px;
+    padding: 20px;
+    user-select: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-content {
+    margin-top: 15px;
+}
+
+.user-avatar {
+    width: 44px;
+    height: 44px;
+}
+
+.user-name {
+    font-size: 18px;
+    color: rgb(22, 24, 35);
+    font-family: var(--fontSecond);
+
+    i {
+        font-size: 14px;
+        color: rgb(32, 213, 236);
+        margin-left: 4px;
+    }
+}
+
+.full-name {
+    font-size: 14px;
+    opacity: #161823bf;
+    color: rgb(22, 24, 35);
+    font-weight: 600;
+    font-family: var(--fontSecond);
+}
+
+.analytics {
+    margin-top: 14px;
+    font-size: 16px;
+}
+
+.value {
+    font-size: 18px;
+}
+
+.label {
+    color: #161823bf;
+    padding-right: 13px;
+    font-weight: 400;
+}
