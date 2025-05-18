@@ -7,7 +7,7 @@ import AccountPreview from "./AccountPreview/AccountPreview"
 
 const cx = classNames.bind(styles);
 
-function AccountItem({ data }) {
+function AccountItem({ data, isShowToolTip }) {
 
     const renderPreview = (attrs) => {
         return (
@@ -33,7 +33,10 @@ function AccountItem({ data }) {
                 placement={ 'bottom-start' }
                 offset={ [-10, 0] }
                 interactive
-                render={ (attrs) => renderPreview(attrs) }
+                render={ (attrs) => {
+                    if (!isShowToolTip) return null;
+                    return renderPreview(attrs);
+                  }}
             >
                 <div className={ cx('account') }>
                     <Image

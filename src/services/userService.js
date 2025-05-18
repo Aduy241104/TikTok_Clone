@@ -1,4 +1,4 @@
-import { getSuggestedAccountAPI } from "../utils/httpRequest";
+import { getAccountAPI, getSuggestedAccountAPI } from "../utils/httpRequest";
 
 export const getSuggested = async (page, perPage = 5) => {
     try {
@@ -12,5 +12,18 @@ export const getSuggested = async (page, perPage = 5) => {
     } catch (error) {
         console.log("lỗi rồi baby");
         return null;
+    }
+}
+
+export const getFollowedAccount = async (page) => {
+    try {
+        const respond = await getAccountAPI('me/followings', {
+            params: {
+                page
+            }
+        })
+        return respond;
+    } catch (error) {
+        console.log(error);
     }
 }

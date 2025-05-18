@@ -1,39 +1,13 @@
 import classNames from "classnames/bind"
 import styles from './SuggestAccount.module.scss'
 import AccountItem from "./AccountItem";
-import { useEffect, useState } from "react";
-import { getSuggested } from "../../services/getSuggestedUserService";
+import { memo } from "react";
 
 const cx = classNames.bind(styles);
 
-function SuggestAccounts({ label }) {
-    const [accountList, setAccountList] = useState([]);
-    const [pageIndex, setPageIndex] = useState(1);
+//prop limit dùng để giới hạn show more bao nhiêu lần
 
-    const handleShowMore = () => {
-        setPageIndex(prev => prev + 1);
-    }
-
-    const handleShowLess = () => {
-        setPageIndex(1);
-        setAccountList([]);
-    }
-
-    useEffect(() => {
-
-        const fetchData = async () => {
-            const respond = await getSuggested(pageIndex, 5);
-            if (respond) {
-                setAccountList(prev => [...prev, ...respond.data])
-            } else {
-                console.log("lỗi rồi nhưng từ từ bắt lỗi");
-            }
-        }
-
-       
-        fetchData()
-        console.log("ayouu");
-    }, [pageIndex]);
+function SuggestAccounts({ label, accountList, handleShowMore, handleShowLess, pageIndex, limit, isShowToolTip }) {
 
     return (
         <div className={ cx('wrapper') }>
@@ -44,11 +18,11 @@ function SuggestAccounts({ label }) {
 
             { accountList.map((item) => {
                 return (
-                    <AccountItem data={ item } key={ item.id } />
+                    <AccountItem data={ item } key={ item.id } isShowToolTip={isShowToolTip} />
                 )
             }) }
 
-            { (pageIndex === 3) ? (
+            { (pageIndex === limit) ? (
                 <button className={ cx('show-more') } onClick={ handleShowLess }>
                     Show less
                 </button>
@@ -61,4 +35,4 @@ function SuggestAccounts({ label }) {
     )
 }
 
-export default SuggestAccounts
+export default memo(SuggestAccounts)

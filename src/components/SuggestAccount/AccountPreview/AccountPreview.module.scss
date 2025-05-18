@@ -8,6 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: -12px;
 }
 
 .preview-content {
@@ -32,7 +33,7 @@
 }
 
 .full-name {
-    font-size: 14px;
+    font-size: 13px;
     opacity: #161823bf;
     color: rgb(22, 24, 35);
     font-weight: 600;

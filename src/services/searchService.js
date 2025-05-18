@@ -14,3 +14,13 @@ export const search = async (q, type = "less") => {
     }
 }
 
+export const getCurrentAccount = async () => {
+    try {
+        const respond = await getAccountAPI('auth/me');
+        return respond;
+
+    } catch (error) {
+        console.log(error);
+
+    }
+}

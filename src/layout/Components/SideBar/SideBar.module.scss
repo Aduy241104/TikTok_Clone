@@ -7,3 +7,8 @@
     height: 100%;
     overflow-y: auto;
 }
+
+.wrapper::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Edge */
+}
