@@ -1,0 +1,51 @@
+.wrapper {
+    width: 100%;
+    padding: 8px;
+    padding-top: 18px;
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.avatar {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.account-info {
+    margin-left: 12px;
+}
+
+.account-name {
+
+    strong {
+        padding-right: 5px;
+        display: inline-block;
+    }
+
+    span {
+        font-size: 14px;
+        color: rgb(0, 0, 0);
+    }
+}
+
+.description {
+    font-size: 14px;
+    margin-top: 6px;
+    color: rgb(0, 0, 0);
+    max-width: 390px;
+}
+
+
+
+.background-music {
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.follow-btn {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
