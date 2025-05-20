@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 14px;
+}
+
+
+.action-btn {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(238, 237, 237);
+    border-radius: 999px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+
+     i {
+        font-size: 21px;
+     }
+}
+
+.analyse {
+    font-size: 12px;
+    margin-top: 7px;
+    font-weight: 600;
+}

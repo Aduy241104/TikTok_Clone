@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import * as videoService from '../../services/videoService'
 import { useEffect, useState } from "react"
 import VideoContent from "./components/VideoContent/VideoContent";
+import ActionButton from "../../components/ActionButton/ActionButton";
 
 
 const cx = classNames.bind(styles);
@@ -34,8 +35,24 @@ function Home() {
                 backgroundMusic={ data.music }
             />
 
-            <div className={cx('video-place')}>
-                <VideoContent/>
+            <div className={ cx('video-place') }>
+                <VideoContent />
+                <div className={ cx('action-place') }>
+                    <ActionButton
+                        icon={ <i className="fa-solid fa-heart"></i> }
+                        analyse={ "225.5K" }
+                    />
+                    <ActionButton
+                        icon={ <i className="fa-solid fa-comment-dots"></i> }
+                        analyse={ "12K" }
+                    />
+
+                    <ActionButton
+                        icon={ <i className="fa-solid fa-share"></i> }
+                        analyse={ "34" }
+                    />
+
+                </div>
             </div>
         </div>
     )
