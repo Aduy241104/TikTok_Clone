@@ -5,7 +5,8 @@ import * as videoService from '../../services/videoService'
 import { useEffect, useState } from "react"
 import VideoContent from "./components/VideoContent/VideoContent";
 import ActionButton from "../../components/ActionButton/ActionButton";
-
+import { SwiperSlide } from "swiper/react";
+import VerticalSlide from "../../components/VerticalSlide";
 
 const cx = classNames.bind(styles);
 
@@ -29,31 +30,61 @@ function Home() {
 
     return (
         <div className={ cx('wrapper') }>
-            <Header
-                user={ data.user }
-                videoDescription={ data.description }
-                backgroundMusic={ data.music }
-            />
-
-            <div className={ cx('video-place') }>
-                <VideoContent />
-                <div className={ cx('action-place') }>
-                    <ActionButton
-                        icon={ <i className="fa-solid fa-heart"></i> }
-                        analyse={ "225.5K" }
+            <VerticalSlide>
+                <SwiperSlide className={ cx('swiper-slide') }>
+                    <Header
+                        user={ data.user }
+                        videoDescription={ data.description }
+                        backgroundMusic={ data.music }
                     />
-                    <ActionButton
-                        icon={ <i className="fa-solid fa-comment-dots"></i> }
-                        analyse={ "12K" }
-                    />
+                    <div className={ cx('video-place') }>
+                        <VideoContent />
+                        <div className={ cx('action-place') }>
+                            <ActionButton
+                                icon={ <i className="fa-solid fa-heart"></i> }
+                                analyse={ "225.5K" }
+                            />
+                            <ActionButton
+                                icon={ <i className="fa-solid fa-comment-dots"></i> }
+                                analyse={ "12K" }
+                            />
+                            <ActionButton
+                                icon={ <i className="fa-solid fa-share"></i> }
+                                analyse={ "34" }
+                            />
+                        </div>
+                    </div>
 
-                    <ActionButton
-                        icon={ <i className="fa-solid fa-share"></i> }
-                        analyse={ "34" }
-                    />
+                </SwiperSlide>
 
-                </div>
-            </div>
+                <SwiperSlide className={ cx('swiper-slide') }>
+                    <Header
+                        user={ data.user }
+                        videoDescription={ data.description }
+                        backgroundMusic={ data.music }
+                    />
+                    <div className={ cx('video-place') }>
+                        <VideoContent />
+                        <div className={ cx('action-place') }>
+                            <ActionButton
+                                icon={ <i className="fa-solid fa-heart"></i> }
+                                analyse={ "225.5K" }
+                            />
+                            <ActionButton
+                                icon={ <i className="fa-solid fa-comment-dots"></i> }
+                                analyse={ "12K" }
+                            />
+                            <ActionButton
+                                icon={ <i className="fa-solid fa-share"></i> }
+                                analyse={ "34" }
+                            />
+                        </div>
+                    </div>
+
+
+                </SwiperSlide>
+
+            </VerticalSlide>
         </div>
     )
 }

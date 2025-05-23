@@ -1,11 +1,15 @@
 import axios from "axios";
-const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90aWt0b2suZnVsbHN0YWNrLmVkdS52blwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTc0NzUzODYwNywiZXhwIjoxNzUwMTMwNjA3LCJuYmYiOjE3NDc1Mzg2MDcsImp0aSI6Im1EakhvdGIyakRDWW1TZUUiLCJzdWIiOjczMjgsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.ZU9YkOVpcGJ44Xl69B3alMUT67OLi8eeWKi66y-1zmw'
+const token = localStorage.getItem("token")
 
 const httpRequest = axios.create({
     baseURL: process.env.REACT_APP_BASE_URL,
     headers: {
         'Authorization': `Bearer ${token}`
     }
+})
+
+const httpPostReques = axios.create({
+    baseURL: process.env.REACT_APP_BASE_URL
 })
 
 export const getAccountAPI = async (path, options = {}) => {
@@ -18,9 +22,15 @@ export const getSuggestedAccountAPI = async (path, option = {}) => {
     return respond.data;
 }
 
-export const getAPI = async (path, option={}) => {
+export const getAPI = async (path, option = {}) => {
     const respond = await httpRequest.get(path, option);
     return respond.data;
+}
+
+export const getTestAPI = async (path, objectBody) => {
+    const response = await httpPostReques.post(path, objectBody)
+    return response;
+
 }
 
 export default httpRequest;
