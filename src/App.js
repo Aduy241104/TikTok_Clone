@@ -2,12 +2,11 @@ import { Route, Routes } from 'react-router-dom';
 import { publicRoutes } from './routers';
 import DefaultLayout from './layout/DefaultLayout';
 import { Fragment } from 'react';
-import Testss from './Testss';
 import AuthProvider from './contexts/AuthContext';
-
 
 function App() {
 
+  
   return (
     <AuthProvider>
       <div className='App'>
@@ -30,7 +29,6 @@ function App() {
               />
             )
           }) }
-
         </Routes>
       </div>
     </AuthProvider>
