@@ -24,18 +24,20 @@ function Login() {
         })
     }
 
-
     const handleLogin = async () => {
-        const response = await loginApi("auth/login", loginData);
-        if (response.data) {
-            Login(response.data, response.meta.token);
-            navigate("/")
+        let isFill = loginData.email.trim() === "" || loginData.password.trim() === "";
+        if (!isFill) {
+            const response = await loginApi("auth/login", loginData);
+            if (response.data) {
+                Login(response.data, response.meta.token);
+                navigate("/")
 
-        } else {
-            console.log("fail");
+            } else {
+                console.log("fail");
+            }
+
         }
     }
-
 
     return (
         <div className={ cx('wrapper') }>
